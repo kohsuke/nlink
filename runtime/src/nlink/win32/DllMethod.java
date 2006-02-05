@@ -6,6 +6,12 @@ import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 
 /**
+ * Indicates that a method is exported from a DLL.
+ *
+ * <p>
+ * This annotation is only allowed on a method inside an interface
+ * with {@link DllClass} annotation.
+ *
  * @author Kohsuke Kawaguchi
  */
 @Retention(RetentionPolicy.RUNTIME)
@@ -21,7 +27,7 @@ public @interface DllMethod {
      * If left unspecified, the method name is used for {@code GetProcAddress}.
      * (If a procedure of that name is not found, the runtime tries by
      * appending 'W' to it (because Win32 APIs have 'W' suffix to indicate
-     * the Unicode version.) 
+     * the Unicode version.)
      */
     String value() default "";
 }

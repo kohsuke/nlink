@@ -1,21 +1,50 @@
 package nlink.win32;
 
 import nlink.NLinkException;
-import nlink.IllegalAnnotationError;
 
 import java.io.File;
 import java.lang.reflect.Proxy;
 
 /**
+ * Entry point to the Win32 version of the NLink API.
+ *
  * @author Kohsuke Kawaguchi
  */
 public abstract class NLink {
     private NLink() {} // no instantiation please
 
+    /**
+     * Creates a method invocation converter for the given interface.
+     *
+     * @param dllInterface
+     *      An interface with {@link DllClass} annotation.
+     *      Must not be null.
+     *
+     * @return
+     *      The created converter. Always non-null.
+     */
     public static <T> T create(Class<T> dllInterface) {
         return create(dllInterface,null);
     }
 
+    /**
+     * Creates a method invocation converter for the given interface.
+     *
+     * <p>
+     * This is the extended version of {@link #create(Class)}
+     * that allows a DLL to be specified explicitly.
+     *
+     * @param dllInterface
+     *      An interface with {@link DllClass} annotation.
+     *      Must not be null.
+     *
+     * @param library
+     *      The full path of the DLL file to be loaded.
+     *      Must not be null.
+     * 
+     * @return
+     *      The created converter. Always non-null.
+     */
     public static <T> T create(Class<T> dllInterface, File library) {
         if(!dllInterface.isInterface())
             throw new NLinkException(dllInterface+" is not an interface");

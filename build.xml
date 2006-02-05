@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<project name="nlink" default="dist">
+  <!--
+    if the dist target fails with "Unable to load com4j.dll", make sure your path
+    includes native/Debug.
+  -->
+  
+  <target name="clean">
+    <delete dir="build" />
+    <antcall target="-exec-target">
+      <param name="target" value="clean"/>
+    </antcall>
+  </target>
+  
+  <target name="jar">
+    <antcall target="-exec-target">
+      <param name="target" value="jar"/>
+    </antcall>
+  </target>
+  
+  <target name="javadoc"
+          description="creates javadoc from the publicly visible runtime classes">
+    <javadoc
+      locale="en"
+      destdir="build/javadoc"
+      windowtitle="NLink"
+      public="true"
+      packagenames="nlink,nlink.win32">
+      
+      <fileset dir="runtime/src" includes="**/*.java" excludes="nlink/impl/*.java" />
+      <link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+    </javadoc>
+  </target>
+  
+  <target name="dist" depends="jar,javadoc">
+    <tstamp/>
+    <mkdir dir="build/dist"/>
+    
+    <ant dir="native" target="release"/>
+    
+    <copy todir="build/dist">
+      <fileset dir="." includes="samples/**/*" excludes="**/CVS, samples/*/test/**, **/*.log"/>
+      <fileset dir="runtime/build" includes="nlink.jar, nlink-src.zip"/>
+    </copy>
+    <ant dir="build/dist/samples" target="compile"/>
+    
+    <zip file="build/nlink-${DSTAMP}.zip">
+      <fileset dir="../www" includes="LICENSE.txt" />
+      <fileset dir="build" includes="javadoc/**/*"/>
+      <fileset dir="build/dist" includes="**/*"/>
+      <fileset dir="native/Release" includes="nlink.dll" />
+    </zip>
+  </target>
+  
+  
+  <target name="-exec-target">
+    <ant dir="runtime" target="${target}"/>
+    <ant dir="native" target="${target}"/>
+  </target>
+</project>

@@ -1,3 +1,5 @@
+package msgbox;
+
 import nlink.win32.NLink;
 
 /**

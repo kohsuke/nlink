@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project name="native" default="release">
+  <target name="release">
+    <exec dir="." executable="devenv" 
+      failonerror="yes">
+      <arg line="nlink.vcproj /rebuild Release"/>
+    </exec>
+    <exec dir="." executable="devenv" 
+      failonerror="yes">
+      <arg line="nlink.vcproj /rebuild Debug"/>
+    </exec>
+  </target>
+  
+  <target name="clean">
+    <delete dir="Debug"/>
+    <delete dir="Release"/>
+  </target>
+  
+  <target name="jar" /><!-- nothing to do with the jar target -->
+</project>

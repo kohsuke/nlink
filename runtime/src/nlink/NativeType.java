@@ -249,33 +249,6 @@ public enum NativeType {
         }
     },
 
-
-    /**
-     * <tt>SAFEARRAY</tt>.
-     *
-     * <p>
-     * The given java type is converted into a SAFEARRAY before
-     * passed to the native method.
-     *
-     * When the Java type is an array, the component type of the SAFEARRAY
-     * is automatically derived from the component type of the Java array.
-     * This inference is defined as follows:
-     * <ul>
-     *  <li>boolean[] -> SAFEARRAY(VT_BOOL)
-     *  <li>byte[] -> SAFEARRAY(VT_UI1)
-     *  <li>char[] -> SAFEARRAY(VT_UI2)  (??? is this right?)
-     *  <li>short[] -> SAFEARRAY(VT_I2)
-     *  <li>int[] -> SAFEARRAY(VT_I4)
-     *  <li>long[] -> SAFEARRAY(VT_I8)
-     *  <li>float[] -> SAFEARRAY(VT_R4)
-     *  <li>double[] -> SAFEARRAY(VT_R8)
-     *
-     *  <li>Object[] -> SAFEARRAY(VT_VARIANT)
-     *  <li>String[] -> SAFEARRAY(VT_BSTR)
-     * </ul>
-     */
-    SafeArray(500,24),
-
     ;
 
 

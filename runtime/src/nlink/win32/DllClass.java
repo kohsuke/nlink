@@ -6,6 +6,9 @@ import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 
 /**
+ * Indicates that an interface represents the functions
+ * exported from a DLL.
+ * 
  * @author Kohsuke Kawaguchi
  */
 @Retention(RetentionPolicy.RUNTIME)

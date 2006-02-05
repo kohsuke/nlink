@@ -216,6 +216,8 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/samples/msgbox/msgbox.iml" filepath="$PROJECT_DIR$/samples/msgbox/msgbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nlink.iml" filepath="$PROJECT_DIR$/nlink.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime/runtime.iml" filepath="$PROJECT_DIR$/runtime/runtime.iml" />
     </modules>
   </component>

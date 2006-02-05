@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="msgbox" default="run" basedir=".">
+  
+  <path id="nlink">
+    <fileset dir="../.." includes="*.jar"/>
+    <pathelement location="build/classes"/>
+    <pathelement path="${java.class.path}"/><!-- this line is just to allow the sample inside the workspace -->
+  </path>
+  
+  <target name="compile">
+    <mkdir dir="build/classes"/>
+    <javac srcdir="src" destdir="build/classes" debug="on">
+      <classpath refid="nlink" />
+    </javac>
+  </target>
+  
+  <target name="run" depends="compile">
+    <java classname="msgbox.Test" fork="true">
+      <classpath>
+        <path refid="nlink"/>
+      </classpath>
+    </java>
+  </target>
+  
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+</project>

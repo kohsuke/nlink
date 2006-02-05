@@ -3,6 +3,8 @@ package nlink.win32;
 import nlink.NLinkException;
 
 /**
+ * Signals an error during the NLink processing.
+ *
  * @author Kohsuke Kawaguchi
  */
 public class Win32NLinkException extends NLinkException {
