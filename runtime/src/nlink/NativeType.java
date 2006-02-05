@@ -20,7 +20,6 @@ public enum NativeType {
     /**
      * <tt>BSTR</tt>.
      *
-     * TODO: support CharSequence
      * <p>
      * Expected Java type:
      *      String

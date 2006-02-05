@@ -76,7 +76,7 @@ public class MethodIntrospector {
         defaultConversions.put( short.class, NativeType.Int16 );
         defaultConversions.put( byte.class, NativeType.Int8 );
         defaultConversions.put( boolean.class, NativeType.VariantBool );
-        defaultConversions.put( String.class, NativeType.BSTR );
+        defaultConversions.put( String.class, NativeType.Unicode );
         defaultConversions.put( Date.class, NativeType.Date );
     }
 

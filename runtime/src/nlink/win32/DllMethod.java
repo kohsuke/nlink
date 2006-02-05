@@ -1,5 +1,7 @@
 package nlink.win32;
 
+import nlink.CallConvention;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
@@ -30,4 +32,9 @@ public @interface DllMethod {
      * the Unicode version.)
      */
     String value() default "";
+
+    /**
+     * Call convention of the method.
+     */
+    CallConvention convention() default CallConvention.STDCALL;
 }
