@@ -44,6 +44,8 @@ class Wrapper implements InvocationHandler {
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        if(args==null)  args=EMPTY_ARRAY;
+
         if(method.getDeclaringClass()==Object.class) {
             try {
                 return method.invoke(this,args);
@@ -182,4 +184,6 @@ class Wrapper implements InvocationHandler {
             throw new IllegalArgumentException(t.toString());
         }
     }
+
+    private static final Object[] EMPTY_ARRAY = new Object[0];
 }
