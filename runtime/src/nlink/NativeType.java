@@ -30,7 +30,7 @@ public enum NativeType {
 	 * 
 	 * TODO: support StringBuffer
 	 * <p>
-	 * Expected Java type: {@link Holder<String>}
+	 * Expected Java type: {@link Holder}<String>
 	 */
 	BSTR_ByRef(1 | BYREF, 4),
 
