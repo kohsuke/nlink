@@ -1,10 +1,9 @@
 package nlink.win32;
 
-import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Target;
 
 /**
  * Checks {@code GetLastError} after the invocation and throws
@@ -12,7 +11,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 
  * @author Kohsuke Kawaguchi
  */
-@Target({ElementType.METHOD})
-@Retention(RUNTIME)
+@Target( { ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
 public @interface CheckLastError {
 }

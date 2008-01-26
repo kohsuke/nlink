@@ -15,6 +15,7 @@
       <metainf dir="../../www" includes="LICENSE.txt" />
       <fileset dir="build/classes" includes="**/*.class"/>
       <fileset dir="src" includes="**/*.properties"/>
+      <fileset dir="../native/Release" includes="**/*.dll"/>
     </jar>
     <zip file="build/nlink-src.zip">
       <fileset dir="src" excludes="**/CVS"/>

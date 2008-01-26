@@ -36,8 +36,10 @@
     <tstamp/>
     <mkdir dir="build/dist"/>
     
+  	<!--
     <ant dir="native" target="release"/>
-    
+    -->
+  	
     <copy todir="build/dist">
       <fileset dir="." includes="samples/**/*" excludes="**/CVS, samples/*/test/**, **/*.log"/>
       <fileset dir="runtime/build" includes="nlink.jar, nlink-src.zip"/>
